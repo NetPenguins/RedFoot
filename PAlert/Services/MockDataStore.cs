@@ -14,7 +14,8 @@ namespace PAlert
             items = new List<Item>();
             var _items = new List<Item>
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Florida Panther", Description="The Florida panther is a North American cougar P. c. couguar population.", Wiki="https://en.wikipedia.org/wiki/Florida_panther", Image=UIImage.FromBundle("flpanther") }
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Florida Panther", Description="The Florida panther is a North American cougar P. c. couguar population.", Wiki="https://en.wikipedia.org/wiki/Florida_panther", Image=UIImage.FromBundle("flpanther") },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Coyote", Description="", Wiki="", Image=UIImage.FromBundle("") }
             };
 
             foreach (Item item in _items)
