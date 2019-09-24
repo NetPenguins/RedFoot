@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PAlert", "PAlert\PAlert.shproj", "{6716FF17-2001-440A-B793-C2B2A2ECF79C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAlert.iOS", "iOS\PAlert.iOS.csproj", "{8C9F1D74-C9D3-4067-B37A-634357C7159F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C9F1D74-C9D3-4067-B37A-634357C7159F}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{8C9F1D74-C9D3-4067-B37A-634357C7159F}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{8C9F1D74-C9D3-4067-B37A-634357C7159F}.Release|iPhone.ActiveCfg = Release|iPhone
+		{8C9F1D74-C9D3-4067-B37A-634357C7159F}.Release|iPhone.Build.0 = Release|iPhone
+		{8C9F1D74-C9D3-4067-B37A-634357C7159F}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{8C9F1D74-C9D3-4067-B37A-634357C7159F}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{8C9F1D74-C9D3-4067-B37A-634357C7159F}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{8C9F1D74-C9D3-4067-B37A-634357C7159F}.Debug|iPhone.Build.0 = Debug|iPhone
+	EndGlobalSection
+EndGlobal
