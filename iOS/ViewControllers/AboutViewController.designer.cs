@@ -1,6 +1,6 @@
 ﻿// WARNING
 //
-// This file has been generated automatically by Xamarin Studio from the outlets and
+// This file has been generated automatically by Visual Studio from the outlets and
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
@@ -11,53 +11,49 @@ using UIKit;
 
 namespace PAlert.iOS
 {
-    [Register("AboutViewController")]
+    [Register ("AboutViewController")]
     partial class AboutViewController
     {
         [Outlet]
-        [GeneratedCode("iOS Designer", "1.0")]
-        UIKit.UIImageView AboutImageView { get; set; }
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView AboutImage { get; set; }
 
         [Outlet]
-        [GeneratedCode("iOS Designer", "1.0")]
-        UIKit.UITextView AboutTextView { get; set; }
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView AboutImageView { get; set; }
 
         [Outlet]
-        [GeneratedCode("iOS Designer", "1.0")]
-        UIKit.UILabel AppNameLabel { get; set; }
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextView AboutText { get; set; }
 
         [Outlet]
-        [GeneratedCode("iOS Designer", "1.0")]
-        UIKit.UILabel VersionLabel { get; set; }
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel copyright { get; set; }
 
-        [Action("ReadMoreButton_TouchUpInside:")]
-        [GeneratedCode("iOS Designer", "1.0")]
-        partial void ReadMoreButton_TouchUpInside(UIKit.UIButton sender);
+        [Action ("ReadMoreButton_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void ReadMoreButton_TouchUpInside (UIKit.UIButton sender);
 
-        void ReleaseDesignerOutlets()
+        void ReleaseDesignerOutlets ()
         {
-            if (AboutImageView != null)
-            {
-                AboutImageView.Dispose();
+            if (AboutImage != null) {
+                AboutImage.Dispose ();
+                AboutImage = null;
+            }
+
+            if (AboutImageView != null) {
+                AboutImageView.Dispose ();
                 AboutImageView = null;
             }
 
-            if (AboutTextView != null)
-            {
-                AboutTextView.Dispose();
-                AboutTextView = null;
+            if (AboutText != null) {
+                AboutText.Dispose ();
+                AboutText = null;
             }
 
-            if (AppNameLabel != null)
-            {
-                AppNameLabel.Dispose();
-                AppNameLabel = null;
-            }
-
-            if (VersionLabel != null)
-            {
-                VersionLabel.Dispose();
-                VersionLabel = null;
+            if (copyright != null) {
+                copyright.Dispose ();
+                copyright = null;
             }
         }
     }

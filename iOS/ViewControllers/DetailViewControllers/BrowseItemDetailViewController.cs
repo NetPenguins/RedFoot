@@ -1,5 +1,7 @@
 ﻿using System;
+using Foundation;
 using UIKit;
+using WebKit;
 
 namespace PAlert.iOS
 {
@@ -13,8 +15,14 @@ namespace PAlert.iOS
             base.ViewDidLoad();
 
             Title = ViewModel.Title;
-            ItemNameLabel.Text = ViewModel.Item.Text;
             ItemDescriptionLabel.Text = ViewModel.Item.Description;
+            web = new WKWebView(View.Frame, new WKWebViewConfiguration());
+            View.AddSubview(web);
+
+            var url = new NSUrl(ViewModel.Item.Wiki);
+            var request = new NSUrlRequest(url);
+            web.LoadRequest(request);
+
         }
     }
 }
