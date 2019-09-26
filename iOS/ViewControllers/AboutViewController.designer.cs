@@ -24,7 +24,7 @@ namespace PAlert.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextView AboutText { get; set; }
+        UIKit.UITextView AboutTextView { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -46,9 +46,9 @@ namespace PAlert.iOS
                 AboutImageView = null;
             }
 
-            if (AboutText != null) {
-                AboutText.Dispose ();
-                AboutText = null;
+            if (AboutTextView != null) {
+                AboutTextView.Dispose ();
+                AboutTextView = null;
             }
 
             if (copyright != null) {

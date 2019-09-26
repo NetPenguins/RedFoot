@@ -1,4 +1,4 @@
-﻿// WARNING
+// WARNING
 //
 // This file has been generated automatically by Visual Studio from the outlets and
 // actions declared in your storyboard file.
@@ -11,11 +11,19 @@ using UIKit;
 
 namespace PAlert.iOS
 {
-    [Register ("TabBarController")]
-    partial class TabBarController
+    [Register ("MappingView")]
+    partial class MappingView
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        WebKit.WKWebView WebView { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (WebView != null) {
+                WebView.Dispose ();
+                WebView = null;
+            }
         }
     }
 }

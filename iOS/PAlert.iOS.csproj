@@ -155,6 +155,10 @@
     </Compile>
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Main.cs" />
+    <Compile Include="ViewControllers\MappingView.cs" />
+    <Compile Include="ViewControllers\MappingView.designer.cs">
+      <DependentUpon>MappingView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
