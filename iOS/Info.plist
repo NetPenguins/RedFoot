@@ -46,5 +46,11 @@
 	<false/>
 	<key>CFBundleName</key>
 	<string>Red Foot</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Would like to access your location during use</string>
 </dict>
 </plist>

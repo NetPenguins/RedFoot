@@ -16,13 +16,22 @@ namespace PAlert.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        WebKit.WKWebView WebView { get; set; }
+        UIKit.UILongPressGestureRecognizer initPoint { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        MapKit.MKMapView map { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (WebView != null) {
-                WebView.Dispose ();
-                WebView = null;
+            if (initPoint != null) {
+                initPoint.Dispose ();
+                initPoint = null;
+            }
+
+            if (map != null) {
+                map.Dispose ();
+                map = null;
             }
         }
     }

@@ -108,6 +108,15 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.4.2.0.815419\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Swift4">
+      <HintPath>..\packages\Xamarin.Swift4.4.0.0.0\lib\xamarinios10\Xamarin.Swift4.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Swift4.MapKit">
+      <HintPath>..\packages\Xamarin.Swift4.MapKit.4.2.1.1\lib\xamarinios10\Xamarin.Swift4.MapKit.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoTouch.Dialog-1" />
+    <Reference Include="MonoTouch.NUnitLite" />
+    <Reference Include="Mono.CSharp" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -125,12 +134,12 @@
     <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamarin_logo%403x.png" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appred-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appred 120.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\appredLoad.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\appredLoad-1.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\appredLoad-2.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\appredLoad-3.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\RedFootImage.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\RedFootImage-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\RedFootImage-2.png" />
+    <ImageAsset Include="Assets.xcassets\First.imageset\RedFootImage.pdf" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\bear-1346492-1920x1280.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\bear-1346492-1920x1280-1.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewControllers\DetailViewControllers\BrowseItemDetailViewController.cs" />
@@ -177,4 +186,5 @@
   <Import Project="..\PAlert\PAlert.projitems" Label="Shared" Condition="Exists('..\PAlert\PAlert.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.4.2.0.815419\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.4.2.0.815419\build\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Swift4.4.0.0.0\build\Xamarin.Swift4.targets" Condition="Exists('..\packages\Xamarin.Swift4.4.0.0.0\build\Xamarin.Swift4.targets')" />
 </Project>

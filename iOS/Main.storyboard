@@ -318,22 +318,23 @@
         <scene sceneID="11707">
             <objects>
                 <viewController id="11708" sceneMemberID="viewController" customClass="MappingView" storyboardIdentifier="MappingView">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="11715"/>
+                        <viewControllerLayoutGuide type="bottom" id="11716"/>
+                    </layoutGuides>
                     <tabBarItem key="tabBarItem" title="Item" id="11710" translatesAutoresizingMaskIntoConstraints="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="WebView" destination="11714" id="name-outlet-11714"/>
-                    </connections>
-                    <wkWebView contentMode="scaleToFill" id="11714" key="view">
+                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satelliteFlyover" id="13165" key="view" pitchEnabled="NO" showsPointsOfInterest="NO" showsUserLocation="YES">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <wkWebViewConfiguration key="configuration">
-                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                            <wkPreferences key="preferences"/>
-                        </wkWebViewConfiguration>
-                    </wkWebView>
+                    </mapView>
+                    <connections>
+                        <outlet property="map" destination="13165" id="name-outlet-13165"/>
+                        <outlet property="initPoint" destination="13684" id="name-outlet-13684"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="11711" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="13684"/>
             </objects>
             <point key="canvasLocation" x="957" y="75"/>
         </scene>

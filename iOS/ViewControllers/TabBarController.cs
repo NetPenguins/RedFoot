@@ -10,6 +10,7 @@ namespace PAlert.iOS
             TabBar.Items[0].Title = "Browse";
             TabBar.Items[1].Title = "Map";
             TabBar.Items[2].Title = "About";
+            
         }
     }
 }
