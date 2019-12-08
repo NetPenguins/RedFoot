@@ -3,53 +3,55 @@ using MapKit;
 using PAlert.ViewModels;
 using System;
 using UIKit;
-using MonoTouch;
 using Foundation;
+using System.Reflection.Emit;
+using System.Drawing;
+using Xamarin.Forms;
+using System.Diagnostics;
+using AddressBookUI;
+using Mono.CSharp;
+using EventKitUI;
+using System.Threading;
 
 namespace PAlert.iOS
 {
-    public partial class MappingView : UIViewController 
+    public partial class MappingView : UIViewController
     {
         public MappingViewModel ViewModel { get; set; }
         public bool IsEnabled { get; private set; }
         public Action longPress;
+        public string returnedChoice;
+        private int count = 1;
+        private MKPointAnnotation annotation;
+
+        private CLLocationCoordinate2D tappedLocationCoord;
+        public CLLocationCoordinate2D GetLocation => tappedLocationCoord;
         public MappingView (IntPtr handle) : base (handle)
         {
             ViewModel = new MappingViewModel();
-            map.MapLoaded += Map_MapLoaded;
         }
+
+        public MKMapView GetMap => map;
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
             Title = ViewModel.Title;
-            //var customDelegate = new CustomMapViewDelegate();
             map = new MKMapView(UIScreen.MainScreen.Bounds);
             map.ShowsUserLocation = true;
             View = map;
-            //customDelegate.OnRegionChanged += CustomDelegate_OnRegionChanged;
-            //map.Delegate = customDelegate;
             
+            map.MapLoaded += Map_MapLoaded;
             var tapRecogniser = new UILongPressGestureRecognizer(this, new ObjCRuntime.Selector("MapTapSelector:"));
             map.AddGestureRecognizer(tapRecogniser);
-            //WebView = new WKWebView(View.Frame, new WKWebViewConfiguration());
-            //View.AddSubview(WebView);
-
-            //var url = new NSUrl("https://apexalertengine.web.app/sightings.html");
-            //var request = new NSUrlRequest(url);
-            //WebView.Configuration.Preferences.JavaScriptCanOpenWindowsAutomatically = true;
-            //WebView.LoadRequest(request);
-
+            
         }
 
         private void CustomDelegate_OnRegionChanged(object sender, MKMapViewChangeEventArgs e)
         {
             var lat = map.Region.Center.Latitude;
             var lon = map.Region.Center.Longitude;
-
             CoreGraphics.CGPoint location = new CoreGraphics.CGPoint(lat, lon);
-            var coord = map.ConvertPoint(location, map);
-            var annotation = new MKPointAnnotation(coord, "working", "yay");
-            
+            //var coord = map.ConvertPoint(location, map);
             map.AddAnnotation(annotation);
             map.ReloadInputViews();
            
@@ -58,33 +60,63 @@ namespace PAlert.iOS
         [Export("MapTapSelector:")]
         protected void OnMapTapped(UIGestureRecognizer sender)
         {
-            CLLocationCoordinate2D tappedLocationCoord = map.ConvertPoint(sender.LocationInView(map), map);
-            //start annotation flow 
-            var annotation = new MKPointAnnotation{
-                Coordinate = tappedLocationCoord,
-                Title = "working",
-                Subtitle = "yay"
-            };
-            map.AddAnnotation(annotation);
+            try
+            {
+                //predChoice(map);
+                tappedLocationCoord = map.ConvertPoint(sender.LocationInView(map), map);
+                //start annotation flow 
+                PredChoice(map, tappedLocationCoord);
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"CaughtException: {e}");
+            }
+        }
+
+        private void PredChoice(MKMapView mK, CLLocationCoordinate2D tappedLoc)
+        {
+            PerformSegue("choiceSegue", this);
         }
 
         private void Map_MapLoaded(object sender, EventArgs e)
         {
-            
-            var span = new MKCoordinateSpan(0.075, 0.075); 
-            var region = new MKCoordinateRegion(new CLLocationCoordinate2D(map.UserLocation.Location.Coordinate.Latitude, map.UserLocation.Location.Coordinate.Longitude), span);
-            map.SetRegion(region, true);
-           
+            if (count == 1)
+            {
+                try
+                {
+                    var span = new MKCoordinateSpan(0.075, 0.075);
+                    
+                    var region = new MKCoordinateRegion(new CLLocationCoordinate2D(map.UserLocation.Location.Coordinate.Latitude, map.UserLocation.Location.Coordinate.Longitude), span);
+                    map.SetRegion(region, true);
+                }
+                catch (NullReferenceException nre)
+                {
+                    Debug.WriteLine($"Exception found: {nre}");
+                    return;
+                }
+                catch(SystemException se)
+                {
+                    Debug.WriteLine($"System Exception found: {se}");
+                    return;
+                }
+            }
+            else if (count > 1)
+            {
+                return;
+            }
+            count++;
          }
 
-        //public class CustomMapViewDelegate : MKMapViewDelegate
-        //{
-        //    public event EventHandler<MKMapViewChangeEventArgs> OnRegionChanged;
-        //    public override void RegionChanged(MKMapView mapView, bool animated)
-        //    {
-        //        OnRegionChanged?.Invoke(mapView, new MKMapViewChangeEventArgs(animated));
-        //    }
-        //}
-    }
+        public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
+        {
+            base.PrepareForSegue(segue, sender);
 
+            // do first a control on the Identifier for your segue
+            if (segue.Identifier.Equals("choiceSegue"))
+            {
+                var viewController = (PredPickView)segue.DestinationViewController;
+                viewController.mapping = this;
+            }
+        }
+    }
 }
