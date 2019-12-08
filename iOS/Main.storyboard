@@ -264,6 +264,10 @@
         <scene sceneID="11707">
             <objects>
                 <viewController storyboardIdentifier="MappingView" id="11708" customClass="MappingView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="14219"/>
+                        <viewControllerLayoutGuide type="bottom" id="14220"/>
+                    </layoutGuides>
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satelliteFlyover" showsUserLocation="YES" showsScale="YES" id="14218">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -326,6 +330,5 @@
     <resources>
         <image name="First" width="32" height="30"/>
         <image name="Second" width="32" height="30"/>
-        <image name="plus" width="16" height="16"/>
     </resources>
 </document>

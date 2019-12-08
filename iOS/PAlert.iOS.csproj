@@ -135,11 +135,12 @@
     <ImageAsset Include="Assets.xcassets\Contents.json" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\RedFootImage.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\RedFootImage-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\RedFootImage-2.png" />
     <ImageAsset Include="Assets.xcassets\First.imageset\RedFootImage.pdf" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\bear-1346492-1920x1280.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\bear-1346492-1920x1280-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\redfootAPPICON.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\redfootAPPICON-1.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\redfootGitHEader2.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\redfootGitHEader2-1.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\redfootGitHEader2-2.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewControllers\DetailViewControllers\BrowseItemDetailViewController.cs" />
@@ -168,8 +169,8 @@
     <Compile Include="ViewControllers\MappingView.designer.cs">
       <DependentUpon>MappingView.cs</DependentUpon>
     </Compile>
-    <Compile Include="PredPickView.cs" />
-    <Compile Include="PredPickView.designer.cs">
+    <Compile Include="ViewControllers\PredPickView.cs" />
+    <Compile Include="ViewControllers\PredPickView.designer.cs">
       <DependentUpon>PredPickView.cs</DependentUpon>
     </Compile>
   </ItemGroup>
