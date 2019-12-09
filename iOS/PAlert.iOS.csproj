@@ -62,7 +62,7 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>Apple Development: cmwilson919@gmail.com (X8CC3S9J6Q)</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
@@ -73,6 +73,7 @@
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <CodesignProvision>iOS Team Provisioning Profile: DevPenguins.RedFoot</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -121,26 +122,47 @@
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\First.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\First.imageset\tab_feed.png" />
-    <ImageAsset Include="Assets.xcassets\First.imageset\tab_feed%402x.png" />
-    <ImageAsset Include="Assets.xcassets\First.imageset\tab_feed%403x.png" />
     <ImageAsset Include="Assets.xcassets\Second.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Second.imageset\tab_about.png" />
     <ImageAsset Include="Assets.xcassets\Second.imageset\tab_about%402x.png" />
     <ImageAsset Include="Assets.xcassets\Second.imageset\tab_about%403x.png" />
     <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamarin_logo.png" />
-    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamarin_logo%402x.png" />
-    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamarin_logo%403x.png" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\RedFootImage.png" />
-    <ImageAsset Include="Assets.xcassets\First.imageset\RedFootImage.pdf" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\redfootAPPICON.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\redfootAPPICON-1.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\redfootGitHEader2.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\redfootGitHEader2-1.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\redfootGitHEader2-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\redfootGitHEader180x180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\redfootAPPICON120x120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\redfootNOTIICON40x40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\redfootNOTIICON40x40-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\redfootNOTICON60x60.png" />
+    <ImageAsset Include="Assets.xcassets\First.imageset\redfootVECTOR.pdf" />
+    <ImageAsset Include="Assets.xcassets\First.imageset\redfootVECTOR-1.pdf" />
+    <ImageAsset Include="Assets.xcassets\First.imageset\redfootGitHEader.png" />
+    <ImageAsset Include="Assets.xcassets\First.imageset\redfootVECTOR.png" />
+    <ImageAsset Include="Assets.xcassets\First.imageset\redfootVECTOR-1.png" />
+    <ImageAsset Include="Assets.xcassets\First.imageset\redfootVECTOR-2.png" />
+    <ImageAsset Include="Assets.xcassets\First.imageset\redfootVECTOR-3.png" />
+    <ImageAsset Include="Assets.xcassets\First.imageset\redfootVECTOR-4.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\redfoot828x1792.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\redfoot2688.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\redfoot1792x828.png" />
+    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\redfootVECTOR.png" />
+    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\redfootVECTOR-1.png" />
+    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\redfootVECTOR-2.png" />
+    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\redfootVECTOR-3.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\.DS_Store" />
+    <ImageAsset Include="Assets.xcassets\Image.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\mapImage.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\predInfo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\predInfo.imageset\lines__list__menu__options-512-3.png" />
+    <ImageAsset Include="Assets.xcassets\predInfo.imageset\lines__list__menu__80x80.png" />
+    <ImageAsset Include="Assets.xcassets\predInfo.imageset\lines__list__menu__80x80-1.png" />
+    <ImageAsset Include="Assets.xcassets\mapImage.imageset\map60-2.png" />
+    <ImageAsset Include="Assets.xcassets\mapImage.imageset\map80.png" />
+    <ImageAsset Include="Assets.xcassets\mapImage.imageset\map80-2.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewControllers\DetailViewControllers\BrowseItemDetailViewController.cs" />
@@ -187,6 +209,8 @@
     <Folder Include="Assets.xcassets\coyote.imageset\" />
     <Folder Include="Assets.xcassets\flpanther.imageset\" />
     <Folder Include="Assets.xcassets\flpanther.imageset\" />
+    <Folder Include="Assets.xcassets\mapImage.imageset\" />
+    <Folder Include="Assets.xcassets\predInfo.imageset\" />
   </ItemGroup>
   <Import Project="..\PAlert\PAlert.projitems" Label="Shared" Condition="Exists('..\PAlert\PAlert.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

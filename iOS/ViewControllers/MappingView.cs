@@ -15,6 +15,10 @@ using System.Threading;
 
 namespace PAlert.iOS
 {
+    /// <summary>
+    /// View Controller for creating the Map element used to select locations and view
+    /// previous spottings.
+    /// </summary>
     public partial class MappingView : UIViewController
     {
         public MappingViewModel ViewModel { get; set; }

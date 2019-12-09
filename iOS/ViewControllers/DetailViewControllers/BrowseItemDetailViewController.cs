@@ -5,6 +5,10 @@ using WebKit;
 
 namespace PAlert.iOS
 {
+    /// <summary>
+    /// View Controller for creating the browser element displaying the predator
+    /// information in a web browser.
+    /// </summary>
     public partial class BrowseItemDetailViewController : UIViewController
     {
         public ItemDetailViewModel ViewModel { get; set; }

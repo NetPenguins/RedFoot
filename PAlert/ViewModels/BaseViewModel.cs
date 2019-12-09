@@ -5,6 +5,9 @@ using System.Runtime.CompilerServices;
 
 namespace PAlert
 {
+    /// <summary>
+    /// Model for the base view
+    /// </summary>
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => ServiceLocator.Instance.Get<IDataStore<Item>>() ?? new MockDataStore();

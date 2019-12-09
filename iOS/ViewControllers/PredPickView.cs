@@ -8,6 +8,9 @@ using System.Diagnostics;
 
 namespace PAlert.iOS
 {
+    /// <summary>
+    /// View Controller for picking the spotted predator.
+    /// </summary>
     public partial class PredPickView : UIViewController
     {
         public PredModel @picker { get; set; }
@@ -38,8 +41,7 @@ namespace PAlert.iOS
             var annotation = new MKPointAnnotation
             {
                 Coordinate = mapping.GetLocation,
-                Title = picker.SelectedItem,
-                Subtitle = "yay"
+                Title = picker.SelectedItem
             };
             mapping.GetMap.AddAnnotation(annotation);
             DismissViewController(true, null);
