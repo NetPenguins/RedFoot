@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using Foundation;
 using UIKit;
 
 namespace PAlert.iOS
 {
+    /// <summary>
+    /// View Controller for creating the predator information view displaying
+    /// all the availible predators to choose from.
+    /// </summary>
     public partial class BrowseViewController : UITableViewController
     {
         UIRefreshControl refreshControl;
@@ -30,6 +35,7 @@ namespace PAlert.iOS
             Title = ViewModel.Title;
 
             ViewModel.PropertyChanged += IsBusy_PropertyChanged;
+            
             ViewModel.Items.CollectionChanged += Items_CollectionChanged;
         }
 
@@ -108,7 +114,7 @@ namespace PAlert.iOS
             var cell = tableView.DequeueReusableCell(CELL_IDENTIFIER, indexPath);
 
             var item = viewModel.Items[indexPath.Row];
-            cell.TextLabel.Text = item.Text;
+            cell.TextLabel.Text = item.Name;
             cell.DetailTextLabel.Text = item.Description;
             cell.LayoutMargins = UIEdgeInsets.Zero;
 

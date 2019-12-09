@@ -4,6 +4,9 @@ using UIKit;
 
 namespace PAlert.iOS
 {
+    /// <summary>
+    /// This is deprecated awaiting removal.
+    /// </summary>
     public partial class ItemNewViewController : UIViewController
     {
         public ItemsViewModel ViewModel { get; set; }
@@ -20,7 +23,7 @@ namespace PAlert.iOS
             {
                 var item = new Item
                 {
-                    Text = txtTitle.Text,
+                    Name = txtTitle.Text,
                     Description = txtDesc.Text
                 };
                 ViewModel.AddItemCommand.Execute(item);

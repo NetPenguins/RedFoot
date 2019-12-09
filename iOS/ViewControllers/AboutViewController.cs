@@ -3,6 +3,9 @@ using UIKit;
 using Xamarin.Forms;
 namespace PAlert.iOS
 {
+    /// <summary>
+    /// View Controller for viewing information regarding the application
+    /// </summary>
     public partial class AboutViewController : UIViewController
     {
         public AboutViewModel ViewModel { get; set; }
@@ -16,7 +19,6 @@ namespace PAlert.iOS
             base.ViewDidLoad();
 
             Title = ViewModel.Title;
-            AboutTextView.Text = "This mobile application is provided to help people around the world identify dangerous predators and share the knowledge with others.";
             copyright.Text = "© Chad Wilson 2019";
 
             var browser = new WebView

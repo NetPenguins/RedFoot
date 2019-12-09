@@ -2,6 +2,9 @@
 
 namespace PAlert
 {
+    /// <summary>
+    /// Model for the about view
+    /// </summary>
     public class AboutViewModel : BaseViewModel
     {
         public AboutViewModel()

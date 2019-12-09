@@ -2,6 +2,9 @@
 
 namespace PAlert
 {
+    /// <summary>
+    /// Model for the item detail view
+    /// </summary>
     public class ItemDetailViewModel : BaseViewModel
     {
         public Item Item { get; set; }
@@ -9,7 +12,7 @@ namespace PAlert
         {
             if (item != null)
             {
-                Title = item.Text;
+                Title = item.Name;
                 Item = item;
             }
         }

@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PAlert
 {
+    /// <summary>
+    /// Model for the Items view
+    /// </summary>
     public class ItemsViewModel : BaseViewModel
     {
         public ObservableCollection<Item> Items { get; set; }
@@ -34,6 +39,7 @@ namespace PAlert
                 {
                     Items.Add(item);
                 }
+                Items = new ObservableCollection<Item>(Items.OrderBy(a => a.Name));
             }
             catch (Exception ex)
             {

@@ -1,11 +1,13 @@
 {
   "images": [
     {
+      "filename": "redfootNOTIICON40x40-1.png",
       "size": "20x20",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
+      "filename": "redfootNOTICON60x60.png",
       "size": "20x20",
       "scale": "3x",
       "idiom": "iphone"
@@ -31,13 +33,13 @@
       "idiom": "iphone"
     },
     {
-      "filename": "redfootAPPICON.png",
+      "filename": "redfootAPPICON120x120.png",
       "size": "60x60",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "redfootAPPICON-1.png",
+      "filename": "redfootGitHEader180x180.png",
       "size": "60x60",
       "scale": "3x",
       "idiom": "iphone"
@@ -49,6 +51,7 @@
       "idiom": "ipad"
     },
     {
+      "filename": "redfootNOTIICON40x40.png",
       "size": "20x20",
       "scale": "2x",
       "idiom": "ipad"

@@ -4,6 +4,9 @@ using UIKit;
 
 namespace PAlert.ViewModels
 {
+    /// <summary>
+    /// Model for the PredPickView
+    /// </summary>
     public class PredModel : UIPickerViewModel
     {
 
@@ -17,7 +20,7 @@ namespace PAlert.ViewModels
             MockDataStore mockData = new MockDataStore();
             foreach(var m in mockData.items)
             {
-                names.Add(m.Text);
+                names.Add(m.Name);
             }
         }
         private nint selectedIndex = 0;
