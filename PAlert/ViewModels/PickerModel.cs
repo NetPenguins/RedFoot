@@ -11,6 +11,7 @@ namespace PAlert.ViewModels
     {
 
         public List<string> names = new List<string>();
+        public List<Item> items = new List<Item>();
         //public event EventHandler ItemSelected;
         public EventHandler ValueChanged;
         public EventHandler pressOccured;
@@ -21,15 +22,24 @@ namespace PAlert.ViewModels
             foreach(var m in mockData.items)
             {
                 names.Add(m.Name);
+                items.Add(m);
             }
         }
         private nint selectedIndex = 0;
 
-        public string SelectedItem
+        public string SelectedName
         {
             get
             {
                 return names[(int)selectedIndex];
+            }
+        }
+
+        public Item SelectedItem
+        {
+            get
+            {
+                return items[(int)selectedIndex];
             }
         }
         private UILabel predLabel;
