@@ -50,7 +50,9 @@ namespace PAlert.iOS
                     Latitude = mapping.GetLocation.Latitude,
                     Longitude = mapping.GetLocation.Longitude,
                     Id = Guid.NewGuid().ToString(),
-                    Date = DateTime.Now
+                    Date = DateTime.Now,
+                    Description = picker.SelectedItem.Description,
+                    Image = picker.SelectedItem.Image
                 };
                 var result = await dataStore.AddItemAsync(item, picker.SelectedName.ToLowerInvariant(), picker.SelectedItem.Id);
                 if(!(result.Equals(HttpStatusCode.Accepted )) || !(result.Equals(HttpStatusCode.OK)) || !(result.Equals(HttpStatusCode.Processing))){

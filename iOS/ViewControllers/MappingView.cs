@@ -43,10 +43,14 @@ namespace PAlert.iOS
             base.ViewDidLoad();
             await Task.Run(() => LoadPredators());
             Title = ViewModel.Title;
-            map = new MKMapView(UIScreen.MainScreen.Bounds);
-            map.ShowsUserLocation = true;
-            View = map;
+            map = new MKMapView(UIScreen.MainScreen.Bounds)
+            {
+                ShowsUserLocation = true,
+                MapType = MKMapType.Hybrid,
+                ShowsCompass = true
+            };
             
+            View = map;
             map.MapLoaded += Map_MapLoaded;
             var tapRecogniser = new UILongPressGestureRecognizer(this, new ObjCRuntime.Selector("MapTapSelector:"));
             map.AddGestureRecognizer(tapRecogniser);
@@ -56,8 +60,12 @@ namespace PAlert.iOS
         private async void LoadPredators()
         {
             CloudDataStore data = new CloudDataStore();
-            var returns = await data.GetItemsAsync("predators/");
-            foreach(var p in returns)
+            var returns = await data.GetItemsAsync("/");
+            if(returns == null)
+            {
+                return;
+            }
+            foreach (var p in returns)
             {
                 CoreGraphics.CGPoint loc = new CoreGraphics.CGPoint(p.Latitude, p.Longitude);
                 var annotation = new MKPointAnnotation
@@ -68,6 +76,19 @@ namespace PAlert.iOS
                 };
                 map.AddAnnotation(annotation);
             }
+            //CloudDataStore data = new CloudDataStore();
+            //var returns = await data.GetItemsAsync("predators/");
+            //foreach (var p in returns)
+            //{
+            //    CoreGraphics.CGPoint loc = new CoreGraphics.CGPoint((System.nfloat)p.Value.Latitude, p.Value.Longitude);
+            //    var annotation = new MKPointAnnotation
+            //    {
+            //        Coordinate = map.ConvertPoint(loc, map),
+            //        Title = p.Value.Name,
+            //        Subtitle = p.Value.Date.ToString()
+            //    };
+            //    map.AddAnnotation(annotation);
+            //}
         }
 
         private void CustomDelegate_OnRegionChanged(object sender, MKMapViewChangeEventArgs e)

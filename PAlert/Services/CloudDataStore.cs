@@ -5,13 +5,14 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using FirebaseAdmin;
 using FireSharp;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using Google.Apis.Auth.OAuth2;
+using Mono.CSharp;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
+using Xamarin.Forms;
 
 namespace PAlert
 {
@@ -20,6 +21,7 @@ namespace PAlert
         
         //HttpClient client;
         IEnumerable<Item> items;
+        //Dictionary<string, Item> items;
         IFirebaseClient client;
 
 
@@ -28,15 +30,15 @@ namespace PAlert
             client = new FirebaseClient(InitFirebase());
             //client = new HttpClient();
             //client.BaseAddress = new Uri($"{App.BackendUrl}/");
-
-            items = new List<Item>();
+            
+            //items = new List<Item>();
         }
 
         private IFirebaseConfig InitFirebase()
         {
             IFirebaseConfig config = new FirebaseConfig
             {
-                AuthSecret = "your api key goes here",
+                AuthSecret = "8uZv3LWymG8gk7D52KWSvmlsTQfeM9SkYbHCG77e",
                 BasePath = "https://apexalertengine.firebaseio.com"
             };
             return config;
@@ -44,12 +46,17 @@ namespace PAlert
 
         public async Task<IEnumerable<Item>> GetItemsAsync(string item, bool forceRefresh = false)
         {
-            if (forceRefresh && CrossConnectivity.Current.IsConnected)
+            //if (forceRefresh && CrossConnectivity.Current.IsConnected)
+            //{
+            var json = await client.GetAsync(item);
+            var j = json.Body.Split(':', 2)[1].Split(':', 2)[1];
+            if (String.IsNullOrWhiteSpace(json.Body) || json.Body == "null")
             {
-                var json = await client.GetAsync(item);
-                items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Item>>(json.Body));
+                return new List<Item>();
             }
-
+            //string jsonString = JsonConvert.SerializeObject(json.Body);
+            items = await Task.Run(() => JsonConvert.DeserializeObject<List<Item>>(j)) ?? new List<Item>();
+            //}
             return items;
         }
 
@@ -71,13 +78,13 @@ namespace PAlert
                 return HttpStatusCode.BadRequest;
 
             var serializedItem = JsonConvert.SerializeObject(item);
-            var primer = await client.SetAsync($"predators/{name}/sightings/{item.Id}", "");
+            var primer = await client.SetAsync($"{name}", "");
             if (primer.StatusCode != HttpStatusCode.Accepted || (primer.StatusCode != HttpStatusCode.OK) || !(primer.StatusCode.Equals(HttpStatusCode.Processing)))
             {
                 Debug.WriteLine($"Node Primer status code returned with {primer}");
                 //return primer.StatusCode;
             }
-            var response = await client.SetAsync($"predators/{name}/sightings/{item.Id}/", item);//new StringContent(serializedItem, Encoding.UTF8, "application/json"));
+            var response = await client.SetAsync($"{name}/{item.Id}/", item);//new StringContent(serializedItem, Encoding.UTF8, "application/json"));
 
             return response.StatusCode;
         }
@@ -91,7 +98,7 @@ namespace PAlert
             var buffer = Encoding.UTF8.GetBytes(serializedItem);
             var byteContent = new ByteArrayContent(buffer);
 
-            var response = await client.PushAsync($"predators/{name}/sightings/{item.Id}", byteContent);
+            var response = await client.PushAsync($"predators/{name}/{item.Id}", byteContent);
 
             return response.StatusCode;
         }
