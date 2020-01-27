@@ -14,6 +14,7 @@ using EventKitUI;
 using System.Threading;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using VideoToolbox;
 
 namespace PAlert.iOS
 {
@@ -38,10 +39,11 @@ namespace PAlert.iOS
         }
 
         public MKMapView GetMap => map;
+
         public override async void ViewDidLoad()
         {
             base.ViewDidLoad();
-            await Task.Run(() => LoadPredators());
+            
             Title = ViewModel.Title;
             map = new MKMapView(UIScreen.MainScreen.Bounds)
             {
@@ -54,41 +56,32 @@ namespace PAlert.iOS
             map.MapLoaded += Map_MapLoaded;
             var tapRecogniser = new UILongPressGestureRecognizer(this, new ObjCRuntime.Selector("MapTapSelector:"));
             map.AddGestureRecognizer(tapRecogniser);
-            
+            await LoadPredators(map);  
         }
 
-        private async void LoadPredators()
+        /// <summary>
+        /// Async Method for obtaining data from the database
+        /// </summary>
+        /// <param name="map">The current map object <see cref="GetMap"/></param>
+        /// <returns></returns>
+        private async Task LoadPredators(MKMapView map)
         {
             CloudDataStore data = new CloudDataStore();
             var returns = await data.GetItemsAsync("/");
-            if(returns == null)
+            if (returns == null)
             {
-                return;
+                return; 
             }
             foreach (var p in returns)
             {
-                CoreGraphics.CGPoint loc = new CoreGraphics.CGPoint(p.Latitude, p.Longitude);
-                var annotation = new MKPointAnnotation
+                var annotation = new MKPointAnnotation //TODO: Make custom annotation that has all information presented to user
                 {
-                    Coordinate = map.ConvertPoint(loc, map),
-                    Title = p.Name,
-                    Subtitle = p.Date.ToString()
+                    Coordinate = new CLLocationCoordinate2D(p.Value.Latitude, p.Value.Longitude),
+                    Title = p.Value.Name,
+                    Subtitle = p.Value.Date.ToString()
                 };
                 map.AddAnnotation(annotation);
             }
-            //CloudDataStore data = new CloudDataStore();
-            //var returns = await data.GetItemsAsync("predators/");
-            //foreach (var p in returns)
-            //{
-            //    CoreGraphics.CGPoint loc = new CoreGraphics.CGPoint((System.nfloat)p.Value.Latitude, p.Value.Longitude);
-            //    var annotation = new MKPointAnnotation
-            //    {
-            //        Coordinate = map.ConvertPoint(loc, map),
-            //        Title = p.Value.Name,
-            //        Subtitle = p.Value.Date.ToString()
-            //    };
-            //    map.AddAnnotation(annotation);
-            //}
         }
 
         private void CustomDelegate_OnRegionChanged(object sender, MKMapViewChangeEventArgs e)
