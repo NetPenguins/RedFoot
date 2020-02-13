@@ -38,7 +38,7 @@ namespace PAlert
         {
             IFirebaseConfig config = new FirebaseConfig
             {
-                AuthSecret = "BXhtaA8BSiAbMwS3AXItUGkMwHNd4af5P6bCtMAg",
+                AuthSecret = "Your-api-goes-here", // need to utilize firebase-admin
                 BasePath = "https://redfoot-18be2.firebaseio.com/"
             };
             return config;
