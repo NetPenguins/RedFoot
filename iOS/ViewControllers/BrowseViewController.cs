@@ -116,8 +116,7 @@ namespace PAlert.iOS
             var item = viewModel.Items[indexPath.Row];
             cell.TextLabel.Text = item.Name;
             cell.DetailTextLabel.Text = item.Description;
-            cell.LayoutMargins = UIEdgeInsets.Zero;
-
+            cell.LayoutMargins = UIEdgeInsets.FromString("20");
             return cell;
         }
     }

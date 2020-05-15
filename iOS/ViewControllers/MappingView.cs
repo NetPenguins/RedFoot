@@ -4,17 +4,8 @@ using PAlert.ViewModels;
 using System;
 using UIKit;
 using Foundation;
-using System.Reflection.Emit;
-using System.Drawing;
-using Xamarin.Forms;
 using System.Diagnostics;
-using AddressBookUI;
-using Mono.CSharp;
-using EventKitUI;
-using System.Threading;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using VideoToolbox;
 
 namespace PAlert.iOS
 {

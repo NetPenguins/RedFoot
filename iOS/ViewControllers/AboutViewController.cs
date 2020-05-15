@@ -19,7 +19,7 @@ namespace PAlert.iOS
             base.ViewDidLoad();
 
             Title = ViewModel.Title;
-            copyright.Text = "© Chad Wilson 2019";
+            copyright.Text = "© NetPenguins 2020";
 
             var browser = new WebView
             {
